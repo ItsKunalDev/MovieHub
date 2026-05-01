@@ -1,0 +1,130 @@
+.footer {
+  background: linear-gradient(to bottom, var(--bg) 0%, #050508 100%);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 4rem 2.5rem 2rem;
+  margin-top: 3rem;
+}
+
+.footer-inner {
+  display: flex;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  flex-wrap: wrap;
+}
+
+/* Brand */
+.footer-brand {
+  flex: 1;
+  min-width: 220px;
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.footer-logo-icon {
+  font-size: 1.8rem;
+  color: var(--accent);
+  filter: drop-shadow(0 0 8px var(--accent));
+}
+.footer-logo span {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+.footer-tagline {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  max-width: 260px;
+  margin-bottom: 1.4rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.6rem;
+}
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, transform 0.2s, border-color 0.2s;
+}
+.social-icon:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  transform: translateY(-2px) scale(1.1);
+  box-shadow: 0 4px 16px rgba(229,9,20,0.4);
+}
+
+/* Link columns */
+.footer-links {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.footer-col {}
+.footer-col-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 1rem;
+}
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.footer-col a {
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: #fff; }
+
+/* Bottom */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.footer-bottom p {
+  color: rgba(255,255,255,0.25);
+  font-size: 0.78rem;
+}
+.footer-disclaimer {
+  font-size: 0.73rem !important;
+  color: rgba(255,255,255,0.18) !important;
+}
+
+@media (max-width: 768px) {
+  .footer { padding: 3rem 1.5rem 1.5rem; }
+  .footer-inner { gap: 2.5rem; }
+  .footer-links { gap: 2rem; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}

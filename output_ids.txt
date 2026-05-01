@@ -1,0 +1,20 @@
+const TRENDING_IDS = [
+
+];
+
+const POPULAR_IDS = [
+
+];
+
+const TOP_RATED_IDS = [
+
+];
+
+const HOLLYWOOD_BLOCKBUSTER_IDS = [
+
+];
+
+const BOLLYWOOD_LATEST_IDS = [
+
+];
+

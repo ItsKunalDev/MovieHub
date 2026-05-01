@@ -1,0 +1,186 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 580px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  transition: opacity 0.5s ease;
+  margin-bottom: 2.5rem;
+}
+.hero.fading { opacity: 0.3; }
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 20%;
+  transform: scale(1.05);
+  transition: background-image 0.6s ease;
+  animation: heroZoom 12s ease-in-out infinite alternate;
+}
+@keyframes heroZoom {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1.12); }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.1) 0%,
+    rgba(0,0,0,0.2) 30%,
+    rgba(0,0,0,0.65) 60%,
+    rgba(10,10,18,0.97) 100%
+  );
+}
+.hero-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(10,10,18,0.7) 0%,
+    transparent 60%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  padding: 0 4rem 6.5rem;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.hero-tag {
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+.hero-rating, .hero-year {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.hero-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+  margin: 0 0 1.1rem;
+  letter-spacing: 2px;
+  animation: slideUp 0.7s ease both;
+}
+
+.hero-overview {
+  font-size: clamp(0.87rem, 1.5vw, 1rem);
+  line-height: 1.65;
+  color: rgba(255,255,255,0.72);
+  margin-bottom: 1.8rem;
+  animation: slideUp 0.7s 0.1s ease both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: slideUp 0.7s 0.2s ease both;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.8rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  letter-spacing: 0.3px;
+}
+.hero-btn.primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 30px rgba(229,9,20,0.4);
+}
+.hero-btn.primary:hover {
+  background: #f0131e;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 32px rgba(229,9,20,0.55);
+}
+.hero-btn.secondary {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.hero-btn.secondary:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+/* Dots */
+.hero-dots {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 2;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, width 0.3s;
+  padding: 0;
+}
+.dot.active {
+  background: var(--accent);
+  width: 24px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(229,9,20,0.5);
+}
+
+/* Skeleton */
+.hero-skeleton {
+  background: var(--surface);
+}
+.hero-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.04) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .hero-content { padding: 0 1.5rem 4rem; }
+  .hero-title { font-size: 2.8rem; }
+  .hero-dots { bottom: 1.5rem; }
+}

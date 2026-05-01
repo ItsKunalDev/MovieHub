@@ -1,0 +1,99 @@
+/* ───────── Page wrapper ───────── */
+.page-tv {
+  padding-top: 70px;
+  min-height: 100vh;
+  background: #0d0d0f;
+}
+
+/* ───────── Hero Header ───────── */
+.tv-hero {
+  position: relative;
+  padding: 3.5rem 2.5rem 2.5rem;
+  overflow: hidden;
+}
+
+.tv-hero-glow {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 300px;
+  background: radial-gradient(ellipse, rgba(229, 9, 20, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.tv-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.tv-hero-tag {
+  display: inline-block;
+  background: rgba(229, 9, 20, 0.15);
+  border: 1px solid rgba(229, 9, 20, 0.35);
+  color: #e50914;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+.tv-hero-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  color: #fff;
+  letter-spacing: 4px;
+  line-height: 1;
+  margin: 0 0 0.75rem;
+  background: linear-gradient(135deg, #ffffff 40%, rgba(255,255,255,0.55));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tv-hero-sub {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 480px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ───────── Sections wrapper ───────── */
+.tv-sections {
+  padding-bottom: 4rem;
+}
+
+/* ───────── Divider ───────── */
+.tv-divider {
+  display: flex;
+  align-items: center;
+  padding: 0 2.5rem;
+  margin: 1rem 0 2.5rem;
+}
+.tv-divider::before,
+.tv-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+}
+.tv-divider-label {
+  padding: 0 1.25rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+}
+
+/* ───────── Responsive ───────── */
+@media (max-width: 768px) {
+  .tv-hero { padding: 2.5rem 1rem 1.5rem; }
+  .tv-divider { padding: 0 1rem; }
+}
