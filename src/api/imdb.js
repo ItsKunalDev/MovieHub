@@ -1,4 +1,4 @@
-const OMDB_API_KEY = 'thewdb';
+const OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY || 'thewdb';
 
 const fetchOMDB = async (tconst) => {
   const res = await fetch(`https://www.omdbapi.com/?i=${tconst}&apikey=${OMDB_API_KEY}&plot=full`);

@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const API_KEY = '1673248d';
+const API_KEY = process.env.VITE_OMDB_API_KEY || '1673248d';
 
 const sections = {
   TRENDING_IDS: [
