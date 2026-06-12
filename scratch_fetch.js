@@ -1,6 +1,19 @@
 import fs from 'fs';
+import path from 'path';
 
-const API_KEY = process.env.VITE_OMDB_API_KEY || '1673248d';
+let API_KEY = process.env.VITE_OMDB_API_KEY;
+
+if (!API_KEY && fs.existsSync('.env')) {
+  const envContent = fs.readFileSync('.env', 'utf8');
+  const match = envContent.match(/^VITE_OMDB_API_KEY=(.*)$/m);
+  if (match) {
+    API_KEY = match[1].trim().replace(/['"]/g, '');
+  }
+}
+
+if (!API_KEY) {
+  API_KEY = 'your_omdb_api_key_here';
+}
 
 const sections = {
   TRENDING_IDS: [
@@ -85,11 +98,10 @@ async function run() {
         const res = await fetch(`https://www.omdbapi.com/?s=${encodeURIComponent(title)}&apikey=${API_KEY}`);
         const data = await res.json();
         if (data.Search && data.Search.length > 0) {
-          // Find first movie with a poster
           const movie = data.Search.find(m => m.Type === 'movie' && m.Poster && m.Poster !== 'N/A' && m.imdbID);
           if (movie && !usedIds.has(movie.imdbID)) {
             usedIds.add(movie.imdbID);
-            finalIds[section].push(`  '${movie.imdbID}', // ${movie.Title.replace(/'/g, "\\'")}`);
+            finalIds[section].push(`  '${movie.imdbID}',`);
           }
         }
       } catch (e) {
